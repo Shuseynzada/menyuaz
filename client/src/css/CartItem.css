@@ -1,0 +1,230 @@
+/* .CartItem {
+  height: 700vh;
+} */
+
+.imageSection {
+  width: 100%;
+  height: 29vh;
+  transform: translateY(-50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+/* .imageSection > span {
+  color: yellow;
+  font-size: 150px;
+  font-weight: 900;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 6px white;
+} */
+
+.infoPart {
+  width: 100%;
+  /* height: 1000px; */
+  color: black;
+  background-color: white;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  transform: translateY(-20px);
+}
+
+.UpperPart {
+  display: flex;
+  padding-left: 25px;
+  padding-right: 15px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+
+
+
+.UpperPart > div:first-of-type {
+  width: 110px;
+  aspect-ratio: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  transform: translate(-20px,-30px);
+}
+
+.logoImage {
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  padding: 2px;
+}
+
+.logoimageborder {
+  width: 85px;
+  aspect-ratio: 1;
+  background-image: linear-gradient(red, orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.UpperPart > span {
+  text-align: center;
+  font-size: 17px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: -40px;
+  padding: 0 0.6em;
+  line-height: 106%;
+}
+
+.cartitem-title {
+  margin-top: 20px;
+  font-weight: 600;
+  line-height: 80%;
+}
+
+.UpperPart > span > span{
+  margin-top: 6px;
+  line-height: 100%;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.UpperPart > svg{
+  width: 2em;
+  height: 2em;
+}
+
+
+.additionalInfo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  transform: translateY(-40px);
+}
+
+
+.additionalInfo > div{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+}
+
+
+.iconList {
+  width: calc(100% - 6em);
+  margin: 0 3em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: -30px;
+}
+
+.iconList > a{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius:100% ;
+}
+
+.OffersPart {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.OffersPart > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.OffersPart > div > span{
+  text-align: center;
+  font-size: 10px;
+}
+
+.OffersPart > div > svg{
+  width: 2em;
+  height: 3em;
+}
+
+.DynamicPart{
+  width: 100%;
+}
+
+.close-color {
+  background-color: rgb(126, 105, 28);
+}
+
+.open-color {
+  box-shadow: 0 0 40px rgba(255, 225, 2, 0.7);
+}
+
+.basketDiv{
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  padding: 10px;
+  z-index: 200;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 200ms ease-in-out;
+}
+.ReactModal__Body--open {
+  display: hidden;
+  overflow-y: hidden;
+  transition: all 200ms ease-in-out;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 200ms ease-in-out;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

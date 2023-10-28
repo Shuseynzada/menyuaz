@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+body {
+    /* background-image: linear-gradient(to left, transparent 0, transparent 80%, #505050 100%), linear-gradient(to right, transparent 0, transparent 80%, #505050 100%); */
+}

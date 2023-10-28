@@ -1,0 +1,28 @@
+.loader-line1 {
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 50%;
+    
+}
+
+.spinner {
+    animation: rotate 3s linear infinite;
+}
+/* 
+.pulsing {
+    animation: pulse 4s linear infinite;
+} */
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate2 {
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(540deg);
+    }
+}

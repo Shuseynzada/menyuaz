@@ -1,0 +1,18 @@
+/* Carousel.css */
+.carousel-container {
+    display: flex;
+	width: 100%;
+	min-height: 15vh;
+	max-height: 35vh;
+	box-shadow: 0 0 2rem rgba(0,0,0,.26);
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-item {
+    position: relative;
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+    width: 100%;
+}
