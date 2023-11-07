@@ -27,7 +27,7 @@ export default function Restaurants() {
   const [searchText, setSearchText] = useState("");
   const [queriedData, setQueriedData] = useState([]);
   const [currCategory, setCurrCategory] = useState("Ailəvi restoran")
-
+  
 
 
   let anyCategoryElement = false

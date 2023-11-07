@@ -16,9 +16,13 @@ import woltlogo from "./wolt.png"
 import facebooklogo from "./facebook.png"
 import az from "./az.png"
 import en from "./en.png"
+import ru from "./ru.png"
+import tr from "./tr.png"
 export {
   az,
   en,
+  ru,
+  tr,
   placeholder,
   playstore,
   menyuazlogo,

@@ -48,6 +48,8 @@ export default function Meals({
   const divRef = useRef(null);
   const inputRef = useRef(null);
   const { id } = useParams();
+
+
   function closeModal() {
     setCurrOp(0);
     setIsOpen(false);
@@ -64,7 +66,7 @@ export default function Meals({
 
   useEffect(() => {
     const newFilteredMeals = meals.filter((meal) =>
-      meal.name.az.toLowerCase().includes(searchQuery.toLowerCase())
+      meal.name[language].toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredMeals(newFilteredMeals);
   }, [searchQuery, meals]);
@@ -187,7 +189,7 @@ export default function Meals({
       const meal = meals.find((m) => m._id === mealId);
       let txt = "";
       if (meal)
-        txt = `${meal.name.az}: ${getMealCountInBasket(
+        txt = `${meal.name[language]}: ${getMealCountInBasket(
           mealId
         )} (x${meal.price.toFixed(1)}${(currency == "azn") ? "₼" : ((currency == "usd") ? "$" : (currency == "eur") ? "€" : (currency != null && currency != "") ? currency : "₼")})`;
       return txt;
@@ -308,16 +310,16 @@ export default function Meals({
           return (
             <div
               key={e._id}
-              className={`categoryItems  ${viewCategory == e.name.az ? "bg-yellow-400" : ""
+              className={`categoryItems  ${viewCategory == e.name[language] ? "bg-yellow-400" : ""
                 }`}
               onClick={() => {
                 scrolltoId(`cat${e._id}`);
                 setTimeout(() => {
-                  setViewCategory(e.name.az);
+                  setViewCategory(e.name[language]);
                 }, 100);
               }}
             >
-              {e.name.az.charAt(0).toUpperCase() + e.name.az.substr(1)}
+              {e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1)}
             </div>
           );
         })}
@@ -340,8 +342,8 @@ export default function Meals({
               setCurrentItem={setCurrentItem}
               index={i}
               isSet={
-                event.name.az.includes("`Set") ||
-                event.name.az.includes("set")
+                event.name[language].includes("`Set") ||
+                event.name[language].includes("set")
               }
               canOrder={canOrder}
               currency={currency}
@@ -376,7 +378,7 @@ function Categories({
 
   useEffect(() => {
     if (inView) {
-      setViewCategory(event.name.az);
+      setViewCategory(event.name[language]);
     }
   }, [inView]);
 
@@ -389,7 +391,7 @@ function Categories({
         className={`categoryParent ${index == 0 ? "pt-[1.2em]" : ""}`}
       >
         <span className="categoryName" id={`categoryname${event._id}`}>
-          {event.name.az.charAt(0).toUpperCase() + event.name.az.substr(1)}
+          {event.name[language].charAt(0).toUpperCase() + event.name[language].substr(1)}
         </span>
         {categoryMeals.map((e) => {
           if (e.isActive)
@@ -416,10 +418,10 @@ function Categories({
                 >
                   <span className={`${isSet ? "" : "text-[0.8em]"} ${isSet ? "setliTextSpan" : "textPartSpan"}`}>
                     {" "}
-                    {e.name.az.charAt(0).toUpperCase() + e.name.az.substr(1)}
+                    {e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1)}
                   </span>
                   <span className={`text-[0.6em] font-normal ${isSet ? "setliTextSpan" : "textPartSpan"} fourline`}>
-                    {e.ingredients ? e.ingredients.az : ""}
+                    {e.ingredients ? e.ingredients[language] : ""}
                   </span>
                   <span>
                     {`${e.price} `} {(currency == "azn") ? "₼" : ((currency == "usd") ? "$" : (currency == "eur") ? "€" : (currency != null && currency != "") ? currency : "₼")}
@@ -554,7 +556,7 @@ function BasketBox({
       const meal = meals.find((m) => m._id === mealId);
       let txt;
       if (meal)
-        txt = `${meal.name.az}: ${orderItems[mealId] ? orderItems[mealId] : 0
+        txt = `${meal.name[language]}: ${orderItems[mealId] ? orderItems[mealId] : 0
           } (x${meal.price.toFixed(1)}${(currency == "azn") ? "₼" : ((currency == "usd") ? "$" : (currency == "eur") ? "€" : (currency != null && currency != "") ? currency : "₼")})`;
       return txt;
     });
@@ -718,7 +720,7 @@ function BasketBox({
                           >
                             <div className="basketItem basketItemW2">
                               <span className="max-w-[50%] text-ellipsis overflow-hidden">
-                                {meal.name.az}
+                                {meal.name[language]}
                               </span>
                               <div className="basketItemRight">
                                 <div className="countContainer">
@@ -876,7 +878,7 @@ function BasketBox({
                         >
                           <div className="basketItem w-full">
                             <span className=" text-ellipsis	 overflow-hidden">
-                              {meal.name.az}
+                              {meal.name[language]}
                             </span>
                             <div className="basketItemRight">
                               <span>
@@ -978,12 +980,12 @@ function BasketBox({
                 ></div>
                 <div className="abolsute text-[1.2em] font-bold px-[1em] text-center mt-[1em]">
                   {currentItem
-                    ? currentItem.name.az.charAt(0).toUpperCase() +
-                    currentItem.name.az.substr(1).toLowerCase(1)
+                    ? currentItem.name[language].charAt(0).toUpperCase() +
+                    currentItem.name[language].substr(1).toLowerCase(1)
                     : ""}
                 </div>
                 <div className="abolsute mb-[1em] text-[1em] px-[1em] text-center">
-                  {currentItem ? currentItem.ingredients.az : ""}
+                  {currentItem ? currentItem.ingredients[language] : ""}
                 </div>
               </div>
             )}
