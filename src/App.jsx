@@ -6,6 +6,7 @@ import axios from "axios";
 function App() {
   const [data, setData] = useState([])
   const [pos, setPos] = useState({ latitude: NaN, longitude: NaN })
+
   useEffect(() => {
     const getLocation = async () => {
       if (navigator.geolocation) {
@@ -24,6 +25,7 @@ function App() {
     }
 
     getLocation()
+
   }, [])
 
   useEffect(() => {

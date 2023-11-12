@@ -19,7 +19,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
-    "firebase": "^10.5.0",
+    "firebase": "^10.6.0",
     "fortawesome": "^0.0.1-security",
     "framer-motion": "^10.13.1",
     "google-map-react": "^2.2.1",
@@ -39,7 +39,8 @@
     "react-share": "^4.4.1",
     "react-transition-group": "^4.4.5",
     "react-ui-scrollspy": "^2.3.0",
-    "react-whatsapp": "^0.3.0"
+    "react-whatsapp": "^0.3.0",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

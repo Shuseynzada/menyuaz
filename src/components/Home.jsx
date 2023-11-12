@@ -15,7 +15,6 @@ export default function Home() {
     if (e.target.innerHTML == menuChoice) setMenuChoice("")
     else setMenuChoice(e.target.innerHTML)
   }
-  console.log(services[1].choices.length)
   return (
     <>
       <motion.div
