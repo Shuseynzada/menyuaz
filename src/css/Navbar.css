@@ -1,6 +1,6 @@
 .active-div > .navlink{
     transform-origin: top;
-    transform: scale(0) translateY(-65px);
+    transform: scale(0) translateY(35px);
     margin-bottom: -65px;
     transition: transform .5s ease-in-out , margin-bottom .2s ease-in-out;
     transition-delay:  calc(.1s * var(--i));

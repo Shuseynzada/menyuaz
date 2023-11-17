@@ -34,7 +34,7 @@ function App() {
 
     if (id) {
       // Redirect to the hash route
-      window.location = `/restaurants/${id}`;
+      window.location.replace(`/restaurants/${id}`);
 
       // Optional: remove the query parameter from the URL
       const newUrl = window.location.href.split("?")[0];

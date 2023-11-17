@@ -1,20 +1,21 @@
 import React from "react";
-import { carousel } from "../constans";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
-import { placeholder } from "../assets";
 import "../css/Carousel.css";
+import useFireStore from "../hooks/useFireStore"
 
 export default function Carousel() {
+
+  const carousel = useFireStore("carousel")
+  
+
   return (
-      <div className="carousel-container">
-        {carousel.map((e, i) => {
-          return (
-            <div key={i} className="carousel-item">
-              <img src={e.bg} className="w-full h-full object-cover" />
-            </div>
-          );
-        })}
+    <div className="carousel-container">
+      {carousel && carousel.map((e, i) => {
+        return (
+          <div key={i} className="carousel-item">
+            <img src={e.url} className="w-full h-full object-cover " />
+          </div>
+        );
+      })}
     </div>
   );
 }

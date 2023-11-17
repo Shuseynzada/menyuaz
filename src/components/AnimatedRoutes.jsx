@@ -24,11 +24,11 @@ const Layout = () => {
                     <div className="h-full w-[50%] flex justify-center">
                         <img src={menyuazlogo} className="h-full px-3" />
                     </div>
-                    <div className="h-full w-[50%] flex flex-col p-4 justify-center items-center text-white">
+                    <div className="h-full w-[50%] flex flex-col p-4 justify-center items-center text-[0.9em] text-white">
                         <div className="bg-yellow-500 h-[0.3em] w-full"></div>
                         <p>Bizimlə əlaqə</p>
                         <p>+994 55 801 03 04</p>
-                        <p>+994 50 801 03 03</p>
+                        <p>+994 50 801 03 04</p>
                     </div>
                 </div>
                 <div className="bg-yellow-500 h-[0.3em]"></div>

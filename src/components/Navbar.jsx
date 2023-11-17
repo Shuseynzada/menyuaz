@@ -31,7 +31,7 @@ export default function Navbar() {
       <NavLink to="./" className="h-full aspect-square">
         <img src={menyuazlogo} className="w-full h-full p-1" />
       </NavLink>
-      <div className="hidden sm:flex items-center">
+      <div className="hidden sm:flex items-cente">
         <NavLink
           to="/"
           className={`h-full flex items-center px-[1rem] hover:bg-yellow-400 ${
@@ -86,7 +86,7 @@ export default function Navbar() {
         className="flex sm:hidden items-center px-[1rem] hover:bg-yellow-400 z-[40]"
         onClick={handleMenuClick}
       >
-        <div className="relative flex flex-col justify-center items-center gap-[4px] bars inline w-[1.5em] ">
+        <div className="relative flex flex-col justify-center items-center gap-[4px] bars inline w-[1.5em]">
           <div
             className={`line w-full h-[4px] rounded bg-black transition duration-[200ms] ${
               isMenu ? "rotate-[45deg] absolute" : ""
@@ -106,7 +106,7 @@ export default function Navbar() {
         <div
           className={`absolute w-[50%] ${
             !isMenu ? "active-div" : "non-active-div"
-          } flex flex-col text-center justify-center bg-[gray] top-[3em] right-[0] rounded-bl-[1em] overflow-hidden text-[1em] `}
+          } flex flex-col text-center justify-center text-[0.6em] bg-[gray] top-[5em] right-[0] rounded-bl-[1em] overflow-hidden `}
         >
           <NavLink
             to="/"

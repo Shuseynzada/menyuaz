@@ -35,7 +35,7 @@ export default function Restaurants() {
     if (currCategory == e.serviceSector.az) {
       anyCategoryElement = true
       return (
-        <NavLink to={`/restaurants/${e._id}`} key={`category${i}`} className="h-full grow-0 overflow-y-visible shadow-black">
+        e.isActive && <NavLink to={`/restaurants/${e._id}`} key={`category${i}`} className="h-full grow-0 overflow-y-visible shadow-black">
           <Cards title={e.name} picture={e.profilePic ? e.profilePic : placeholder} dist={e.dist} />
         </NavLink>)
     }
@@ -77,7 +77,7 @@ export default function Restaurants() {
             <div className="restaurants flex  overflow-x-scroll gap-10 mt-2 p-[1em]">
               {
                 data.slice(0, 10).map((e, i) => (
-                  <NavLink to={`/restaurants/${e._id}`} key={`card${i}`} className="h-full overflow-y-visible shadow-black">
+                  e.isActive && <NavLink to={`/restaurants/${e._id}`} key={`card${i}`} className="h-full overflow-y-visible shadow-black">
                     <Cards title={e.name} picture={e.profilePic ? e.profilePic : placeholder} dist={e.dist} />
                   </NavLink>
                 ))
@@ -138,7 +138,7 @@ export default function Restaurants() {
             } w-[80%] gap-5 m-10`}
         >
           {queriedData.map((e, i) => (
-            <NavLink
+            e.isActive && <NavLink
               key={`allres-card${i}`}
               to={`${location}/${e._id}`}
               className=""

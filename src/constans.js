@@ -1,22 +1,5 @@
-import { az, en, placeholder } from "./assets"
-const carousel = [
-    {
-        id: "picture1",
-        bg: placeholder
-    },
-    {
-        id: "picture2",
-        bg: placeholder
-    },
-    {
-        id: "picture3",
-        bg: placeholder
-    },
-    {
-        id: "picture4",
-        bg: placeholder
-    }
-]
+import { az, en, placeholder, ru } from "./assets"
+import { projectFirestore } from "./firebase/config"
 
 const services = [
     {
@@ -24,7 +7,7 @@ const services = [
         choices: [
             {
                 title: "Dəri menyular",
-                pictures: ["./menyuazlogo.svg", placeholder, placeholder]
+                pictures: projectFirestore
             },
             {
                 title: "Kitab menyular",
@@ -46,12 +29,6 @@ const services = [
     },
     {
         title: "Hesab Qabı",
-        choices: [
-            {
-                title: "",
-                pictures: [placeholder, placeholder, placeholder]
-            }
-        ]
     },
     {
         title: "Ofset Çapı",
@@ -141,6 +118,7 @@ const services = [
 const languageTexts = {
     "az": {
         title:"AZ",
+        header: "Azərbaycan dili",
         serviceBottom0: `Hesaba`,
         serviceBottom1: `servis haqqı əlavə olunur`,
         menuOperation: "Əsas menu",
@@ -169,10 +147,12 @@ const languageTexts = {
         room:"Otaq",
         allerg: "Allergiya",
         note:"Qeyd",
-        servicefee:"Servis haqqı"
+        servicefee:"Servis haqqı",
+        img:az
     },
     "en": {
         title:"EN",
+        header: "English",
         serviceBottom0: `A`,
         serviceBottom1: `service fee is added to the account`,
         menuOperation: "Main menu",
@@ -201,10 +181,45 @@ const languageTexts = {
         room:"Room",
         allerg: "Allergy",
         note:"Note",
-        servicefee:"Service fee"
+        servicefee:"Service fee",
+        img:en
+    },
+    "ru": {
+        title:"EN",
+        header:"Русский",
+        serviceBottom0: `A`,
+        serviceBottom1: `service fee is added to the account`,
+        menuOperation: "Main menu",
+        specialOffers: "Special offers",
+        reservation: "Reservation",
+        searchPlace: "Search",
+        hesabIste: "Ask for a bill",
+        makeOrder: "Order",
+        orders: "Your orders",
+        notes: "Notes",
+        allergy: "I have an allergy",
+        tableOrder: "Choose the table number correctly*",
+        roomOrder: "Choose the room number correctly*",
+        reset: "Reset",
+        confirmOrder: "Confirm order - Whatsapp",
+        billOrder: "Your order",
+        tableNumber: "Table number",
+        roomNumber: "Room number",
+        payMethod: "Payment method",
+        billSum: "Total",
+        cancel: "Cancel",
+        askBill: "Ask for bill",
+        cash: "Cash",
+        card: "Card",
+        table:"Table",
+        room:"Room",
+        allerg: "Allergy",
+        note:"Note",
+        servicefee:"Service fee",
+        img:ru
     }
 }
 
 const categories = ["Ailəvi restoran", "Hotel", "Pub", "Bar", "Lounge", "Dönər evi", "Suşi restoranı", "Şirniyyat evi", "Kafe", "Şadlıq sarayı", "Digər"]
 
-export { carousel, categories, services, languageTexts }
+export { categories, services, languageTexts }
