@@ -66,7 +66,7 @@ export default function Meals({
 
   useEffect(() => {
     const newFilteredMeals = meals.filter((meal) =>
-      meal.name[language].toLowerCase().includes(searchQuery.toLowerCase())
+    meal.name[language]?meal.name[language].toLowerCase().includes(searchQuery.toLowerCase()):meal.name.az.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredMeals(newFilteredMeals);
   }, [searchQuery, meals]);
@@ -189,7 +189,7 @@ export default function Meals({
       const meal = meals.find((m) => m._id === mealId);
       let txt = "";
       if (meal)
-        txt = `${meal.name[language]}: ${getMealCountInBasket(
+        txt = `${meal.name[language] ? meal.name[language] : meal.name.az}: ${getMealCountInBasket(
           mealId
         )} (x${meal.price.toFixed(1)}${(currency == "azn") ? "₼" : ((currency == "usd") ? "$" : (currency == "eur") ? "€" : (currency != null && currency != "") ? currency : "₼")})`;
       return txt;
@@ -230,7 +230,7 @@ export default function Meals({
     // Set the sconstcroll position for the horizontal fixed line
     upperScroll.current.scrollLeft = scrollPosition
   };
-  
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -319,7 +319,7 @@ export default function Meals({
                 }, 100);
               }}
             >
-              {e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1)}
+              {e.name[language] ? e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1) : e.name.az.charAt(0).toUpperCase() + e.name.az.substr(1)}
             </div>
           );
         })}
@@ -342,8 +342,8 @@ export default function Meals({
               setCurrentItem={setCurrentItem}
               index={i}
               isSet={
-                event.name[language].includes("`Set") ||
-                event.name[language].includes("set")
+                (event.name[language] ? event.name[language].includes("Set") : event.name.az.includes("Set")) ||
+                (event.name[language] ? event.name[language].includes("set") : event.name.az.includes("set"))
               }
               canOrder={canOrder}
               currency={currency}
@@ -378,7 +378,7 @@ function Categories({
 
   useEffect(() => {
     if (inView) {
-      setViewCategory(event.name[language]);
+      setViewCategory(event.name[language] ? event.name[language] : event.name.az);
     }
   }, [inView]);
 
@@ -391,7 +391,7 @@ function Categories({
         className={`categoryParent ${index == 0 ? "pt-[1.2em]" : ""}`}
       >
         <span className="categoryName" id={`categoryname${event._id}`}>
-          {event.name[language].charAt(0).toUpperCase() + event.name[language].substr(1)}
+          {event.name[language] ? event.name[language].charAt(0).toUpperCase() + event.name[language].substr(1) : event.name.az.charAt(0).toUpperCase() + event.name.az.substr(1)}
         </span>
         {categoryMeals.map((e) => {
           if (e.isActive)
@@ -418,10 +418,10 @@ function Categories({
                 >
                   <span className={`${isSet ? "" : "text-[0.8em]"} ${isSet ? "setliTextSpan" : "textPartSpan"}`}>
                     {" "}
-                    {e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1)}
+                    {e.name[language] ? e.name[language].charAt(0).toUpperCase() + e.name[language].substr(1) : e.name.az.charAt(0).toUpperCase() + e.name.az.substr(1)}
                   </span>
                   <span className={`text-[0.6em] font-normal ${isSet ? "setliTextSpan" : "textPartSpan"} fourline`}>
-                    {e.ingredients ? e.ingredients[language] : ""}
+                    {e.ingredients ? e.ingredients[language] ? e.ingredients[language] : e.ingredients.az : ""}
                   </span>
                   <span>
                     {`${e.price} `} {(currency == "azn") ? "₼" : ((currency == "usd") ? "$" : (currency == "eur") ? "€" : (currency != null && currency != "") ? currency : "₼")}
@@ -720,7 +720,7 @@ function BasketBox({
                           >
                             <div className="basketItem basketItemW2">
                               <span className="max-w-[50%] text-ellipsis overflow-hidden">
-                                {meal.name[language]}
+                                {meal.name[language]?meal.name[language]:meal.name.az}
                               </span>
                               <div className="basketItemRight">
                                 <div className="countContainer">
@@ -878,7 +878,7 @@ function BasketBox({
                         >
                           <div className="basketItem w-full">
                             <span className=" text-ellipsis	 overflow-hidden">
-                              {meal.name[language]}
+                              {meal.name[language]?meal.name[language]:meal.name.az}
                             </span>
                             <div className="basketItemRight">
                               <span>
