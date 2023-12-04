@@ -25,14 +25,13 @@ function CartItemLoader() {
                 const mealsAPI = await fetch(`${import.meta.env.VITE_RESTS_API}/meals/${id}`);
                 const mealsData = await mealsAPI.json();
 
+                if (!Array.isArray(categoriesData) || !Array.isArray(mealsData)) {
+                    throw new Error('Data is not an array');
+                }
 
                 startTransition(() => {
-                    setCategories(categoriesData.sort((a, b) => {
-                        return a.index - b.index
-                    }));
-                    setMeals(mealsData.sort((a, b) => {
-                        return a.index - b.index
-                    }));
+                    setCategories(categoriesData.sort((a, b) => a.index - b.index));
+                    setMeals(mealsData.sort((a, b) => a.index - b.index));
                 });
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -41,13 +40,18 @@ function CartItemLoader() {
         fetchMeals();
     }, [id]);
 
+    const item = getItemById(data, id);
+
+    // Check if item is defined and active
+    const isItemActive = item && item.isActive;
+
     return (
         <Suspense fallback={<PreLoader />}>
             {
-                (meals[0] != -1 && categories[0] != -1)
+                (meals && meals[0] != -1 && categories && categories[0] != -1)
                     ?
-                    getItemById(data, id).isActive
-                        ? < CartItem meals={meals} categories={categories} />
+                    isItemActive
+                        ? <CartItem meals={meals} categories={categories} />
                         : <div className="p-2 flex flex-col items-center text-center">
                             <h1 className="font-bold text-[1.5em] text-red-600">Diqqət</h1><br />
                             <div className="flex items-center">
@@ -57,6 +61,7 @@ function CartItemLoader() {
                                     Tel:055-801-03-04
                                 </p>
                             </div>
+                            {/* Make sure menyuazlogo is defined or imported */}
                             <img src={menyuazlogo} width="200px" className="mt-[50px]" />
                         </div>
 
