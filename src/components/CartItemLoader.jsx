@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState, startTransition, useContext
 import PreLoader from './PreLoader';
 import { useParams } from 'react-router-dom';
 import { MainContext } from "../context";
+import { menyuazlogo } from '../assets';
 
 const CartItem = lazy(() => import("./CartItem"));
 
@@ -52,7 +53,7 @@ function CartItemLoader() {
                     ?
                     isItemActive
                         ? <CartItem meals={meals} categories={categories} />
-                        : <div className="p-2 flex flex-col items-center text-center">
+                        : <div className="p-2 flex flex-col items-center text-center opacity-0 transition-opacity duration-500 delay-2s">
                             <h1 className="font-bold text-[1.5em] text-red-600">Diqqət</h1><br />
                             <div className="flex items-center">
                                 <p className="text-[1.2em]">
