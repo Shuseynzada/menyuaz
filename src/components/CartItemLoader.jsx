@@ -3,6 +3,7 @@ import PreLoader from './PreLoader';
 import { useParams } from 'react-router-dom';
 import { MainContext } from "../context";
 import { menyuazlogo } from '../assets';
+import { motion } from "framer-motion"
 
 const CartItem = lazy(() => import("./CartItem"));
 
@@ -42,7 +43,6 @@ function CartItemLoader() {
     }, [id]);
 
     const item = getItemById(data, id);
-
     // Check if item is defined and active
     const isItemActive = item && item.isActive;
 
@@ -53,7 +53,11 @@ function CartItemLoader() {
                     ?
                     isItemActive
                         ? <CartItem meals={meals} categories={categories} />
-                        : <div className="p-2 flex flex-col items-center text-center opacity-0 transition-opacity duration-500 delay-2s">
+                        : <motion.div initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 2 }}
+                            className="p-2 flex flex-col items-center text-center"
+                        >
                             <h1 className="font-bold text-[1.5em] text-red-600">Diqqət</h1><br />
                             <div className="flex items-center">
                                 <p className="text-[1.2em]">
@@ -62,10 +66,8 @@ function CartItemLoader() {
                                     Tel:055-801-03-04
                                 </p>
                             </div>
-                            {/* Make sure menyuazlogo is defined or imported */}
                             <img src={menyuazlogo} width="200px" className="mt-[50px]" />
-                        </div>
-
+                        </motion.div>
                     : <PreLoader />
             }
         </Suspense>
